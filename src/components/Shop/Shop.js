@@ -3,16 +3,16 @@ import {addToDb, getShoppingCart} from "../../utilities/fakedb"
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-
+import { useLoaderData } from 'react-router-dom';
 const Shop = () => {
-    const [products,setProducts]=useState([])
+    // const [products,setProducts]=useState([])
+    const products=useLoaderData();
     const[cart,setCart]=useState([])
-    useEffect(()=>{
-        fetch('products.json')
-        .then(res=>res.json())
-        .then(data=>setProducts(data))
-
-    },[])
+    // useEffect(()=>{
+    //     fetch('products.json')
+    //     .then(res=>res.json())
+    //     .then(data=>setProducts(data))
+    // },[])
     useEffect(()=>{
         const storedCart=getShoppingCart();
         const savedCart=[];
@@ -23,8 +23,7 @@ const Shop = () => {
             addedProduct.quantity=quantity;
             console.log(addedProduct);
             savedCart.push(addedProduct);
-        }
-        
+        }        
        }
        setCart(savedCart);
     },[products])
