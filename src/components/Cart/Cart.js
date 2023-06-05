@@ -1,8 +1,9 @@
 import React from 'react';
 import "./Cart.css";
+import { clear } from '@testing-library/user-event/dist/clear';
 
 const Cart = (props) => {
-    const{cart}=props;
+    const{cart,clearCart,children}=props;
     let total=0;
     let shipping=0;
     let quantity=0;
@@ -21,6 +22,9 @@ const Cart = (props) => {
                 <p>Total shipping:${shipping} </p>
                 <p>Tax:${tax}</p>
                 <h3>Grand Total:${grandTotal.toFixed(2)} </h3>
+                <button className='clearCart' onClick={clearCart}>Clear Cart</button>
+                
+                {children}
         </div>
     );
 };

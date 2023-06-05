@@ -17,3 +17,15 @@
 .cart-container{
     background-color: rgba(255,153,0,0.3);
 }
+.btn-rvw{
+    width: 100%;
+    padding: 5px;
+    background-color:orange;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+.btn-rvw:hover{
+    background-color: yellowgreen;
+}
